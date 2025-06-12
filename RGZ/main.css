@@ -11,13 +11,19 @@ body {
 
 /* Боковое меню справа */
 .side-nav {
+    position: relative;
     width: 220px;
     height: 100vh; /* фиксированная высота — во всю страницу */
     background-color: #f4f4f4;
     padding-top: 100px;
     box-sizing: border-box;
     overflow-y: auto; /* если меню будет длинным */
-    position: relative;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 /* Ссылки в меню */

@@ -1,191 +1,259 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Чикирисова Анастасия Вячеславовна. Новости - ОМЗ</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
-    <link rel="stylesheet" href="main.css">
-    <link rel="icon" href="favicon.ico">
-    <link rel="icon" href="favicon-16x16.png">
-    <link rel="icon" href="favicon-32x32.png">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon-16x16.png" type="image/x-icon">
-    <link rel="icon" href="favicon-32x32.png" type="image/x-icon">
-    <style>
-        .news-container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        .news-card {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 25px;
-            margin-bottom: 30px;
-            transition: transform 0.3s ease;
-        }
-        .news-card:hover {
-            transform: translateY(-5px);
-        }
-        .news-date {
-            color: #6c757d;
-            font-size: 14px;
-            margin-bottom: 5px;
-        }
-        .news-title {
-            color: #1a3e72;
-            margin-top: 0;
-            margin-bottom: 15px;
-        }
-        .news-short {
-            color: #333;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-        .news-full-text {
-            display: none;
-            padding-top: 15px;
-            border-top: 1px solid #eee;
-            margin-top: 15px;
-            color: #555;
-            line-height: 1.7;
-        }
-        .show-button {
-            background-color: #1a3e72;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-        .show-button:hover {
-            background-color: #2a4e82;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Чикирисова Анастасия Вячеславовна. Новости - ОМЗ</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="main.css" />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="icon" href="favicon-16x16.png" />
+  <link rel="icon" href="favicon-32x32.png" />
+  <style>
+    body {
+      display: flex;
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .main-content {
+      flex: 1;
+    }
+
+    .side-nav {
+      width: 220px;
+      background-color: #f4f4f4;
+      padding-top: 100px;
+    }
+
+    .side-nav a {
+      display: block;
+      padding: 12px 20px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .side-nav a.active,
+    .side-nav a:hover {
+      background-color: #1a3e72;
+      color: white;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 40px;
+      color: #1a3e72;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .news-card {
+      background-color: #f0f5ff;
+      padding: 25px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .news-date {
+      color: #6c757d;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .news-title {
+      color: #1a3e72;
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+
+    .news-short {
+      color: #333;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .news-full-text {
+      display: none;
+      padding-top: 15px;
+      border-top: 1px solid #ccc;
+      margin-top: 15px;
+      color: #555;
+    }
+
+    .show-button {
+      background-color: #1a3e72;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+
+    .show-button:hover {
+      background-color: #2a4e82;
+    }
+  </style>
 </head>
 <body>
-    <div class="main-content">
-        <header class="site-header">
-            <div class="nav-container">
-                <img src="OMZ-logo.gif" alt="Логотип ОМЗ" class="header-logo">
-            </div>
-        </header>
 
-        <main class="news-container">
-            <h1>Новости компании ОМЗ</h1>
-            <div class="news-card">
-                <p class="news-date"><i>01.06.2025</i></p>
-                <h2 class="news-title">ОМЗ подписала контракт на поставку оборудования для АЭС в Индии</h2>
-                <p class="news-short">Контракт включает в себя производство и поставку реакторного оборудования для двух новых энергоблоков.</p>
-                <button class="show-button" onclick="toggleText(this)">Показать</button>
-                <p class="news-full-text">
-                    В рамках заключенного соглашения ОМЗ поставит реакторные корпуса, компенсаторы давления и парогенераторы для строительства
-                    двух новых энергоблоков в Индии. Это станет важным шагом в развитии международного сотрудничества и экспорта высокотехнологичной
-                    продукции российского машиностроения. Завершение поставок ожидается в 2026 году.
-                </p>
-            </div>
+<div class="main-content">
+  <header class="site-header">
+    <div class="nav-container">
+      <img src="OMZ-logo.gif" alt="Логотип ОМЗ" class="header-logo" />
+    </div>
+  </header>
 
-        <div class="news-card">
-            <p class="news-date"><i>05.06.2025</i></p>
-            <h2 class="news-title">Запуск цифровой платформы мониторинга</h2>
-            <p class="news-short">Позволяет отслеживать состояние оборудования в реальном времени.</p>
-            <button class="show-button" onclick="toggleText(this)">Показать</button>
-            <p class="news-full-text">Повышает надёжность эксплуатации и снижает аварийность на объектах металлургии и энергетики.</p>
-        </div>
+  <div class="container">
+    <h1>Новости компании ОМЗ</h1>
 
-        <div class="news-card">
-            <p class="news-date"><i>28.05.2025</i></p>
-            <h2 class="news-title">ОМЗ открыла учебный центр</h2>
-            <p class="news-short">В Екатеринбурге открылся центр подготовки специалистов по атоммашу.</p>
-            <button class="show-button" onclick="toggleText(this)">Показать</button>
-            <p class="news-full-text">Оснащён лабораториями и симуляторами. План — обучать до 1000 человек в год.</p>
-        </div>
-
-        <div class="news-card">
-            <p class="news-date"><i>20.05.2025</i></p>
-            <h2 class="news-title">Модернизация прокатного стана</h2>
-            <p class="news-short">Уралмаш увеличит производительность на 25%.</p>
-            <button class="show-button" onclick="toggleText(this)">Показать</button>
-            <p class="news-full-text">Проект реализуется с применением технологий из Германии и Австрии.</p>
-        </div>
-
-        <div class="news-card">
-            <p class="news-date"><i>15.05.2025</i></p>
-            <h2 class="news-title">Сертификация по ISO 9001:2015</h2>
-            <p class="news-short">ОМЗ прошла международный аудит качества производства.</p>
-            <button class="show-button" onclick="toggleText(this)">Показать</button>
-            <p class="news-full-text">Сертификация проведена TÜV SÜD. Подтверждено соответствие мировым стандартам.</p>
-        </div>
-
-        <div class="news-card">
-            <p class="news-date"><i>10.05.2025</i></p>
-            <h2 class="news-title">ОМЗ на выставке «Атомэкспо 2025»</h2>
-            <p class="news-short">Будут представлены новейшие разработки для атомной отрасли.</p>
-            <button class="show-button" onclick="toggleText(this)">Показать</button>
-            <p class="news-full-text">ОМЗ покажет образцы реакторного оборудования и цифровые платформы управления производством.</p>
-        </div>
-
-        <div class="news-card">
-            <p class="news-date"><i>05.05.2025</i></p>
-            <h2 class="news-title">Поставка насосов для СИБУР</h2>
-            <p class="news-short">Новая серия насосов поступила на завод в Тобольске.</p>
-            <button class="show-button" onclick="toggleText(this)">Показать</button>
-            <p class="news-full-text">Оборудование отличается повышенной устойчивостью к агрессивным средам.</p>
-        </div>
-
-        <div class="news-card">
-            <p class="news-date"><i>28.04.2025</i></p>
-            <h2 class="news-title">Экологическая модернизация</h2>
-            <p class="news-short">На заводах ОМЗ внедряются системы утилизации и фильтрации.</p>
-            <button class="show-button" onclick="toggleText(this)">Показать</button>
-            <p class="news-full-text">Более 500 млн рублей инвестировано в чистое производство.</p>
-        </div>
-
-        <div class="news-card">
-            <p class="news-date"><i>20.04.2025</i></p>
-            <h2 class="news-title">Линия пресс-форм для металлургии</h2>
-            <p class="news-short">ОМЗ запускает новое производство в Санкт-Петербурге.</p>
-            <button class="show-button" onclick="toggleText(this)">Показать</button>
-            <p class="news-full-text">Пресс-формы пойдут на внутренний и экспортный рынки.</p>
-        </div>
-
-        <div class="news-card">
-            <p class="news-date"><i>15.04.2025</i></p>
-            <h2 class="news-title">ОМЗ в рейтинге «Эксперта»</h2>
-            <p class="news-short">4-е место среди машиностроительных компаний РФ.</p>
-            <button class="show-button" onclick="toggleText(this)">Показать</button>
-            <p class="news-full-text">Оценка включала выручку, инновации и экологичность производства.</p>
-        </div>
-        </main>
-
-        <footer>
-            &copy; Анастасия Чикирисова, ФБИ-33, 2 курс, 2025
-        </footer>
+    <div class="news-card">
+      <p class="news-date"><i>15.05.2025</i></p>
+      <h2 class="news-title">ОМЗ запускает новое производство</h2>
+      <p class="news-short">В Московской области началось строительство нового высокотехнологичного цеха для атомной отрасли.</p>
+      <button class="show-button" onclick="toggleText(this)">Показать</button>
+      <p class="news-full-text">
+        ОМЗ инвестирует 2 млрд рублей в строительство нового производственного комплекса. Новый цех будет оборудован роботизированными линиями
+        и позволит увеличить объёмы выпуска оборудования для атомных станций на 40%. Запуск ожидается в 2026 году.
+      </p>
     </div>
 
-<div class="side-nav">
-    <a href="comp.html" class="active">О компании</a>
-    <a href="news.html">Новости</a>
-    <a href="currency.html">Курс валют</a>
-    <a href="contacts.html">Контактные данные</a>
-    <a href="video.html">Видео</a>
+    <div class="news-card">
+      <p class="news-date"><i>01.05.2025</i></p>
+      <h2 class="news-title">ОМЗ заключила контракт с Росатомом</h2>
+      <p class="news-short">Подписано соглашение на поставку оборудования для 2 новых АЭС в России и Казахстане.</p>
+      <button class="show-button" onclick="toggleText(this)">Показать</button>
+      <p class="news-full-text">
+        Контракт между ОМЗ и Росатомом предусматривает производство и поставку реакторного оборудования, ёмкостей и сопутствующих систем. 
+        Работы будут вестись на базе Ижорских заводов. Контракт рассчитан на 3 года.
+      </p>
+    </div>
+
+        <div class="news-card">
+      <p class="news-date"><i>11.06.2025</i></p>
+      <h2 class="news-title">РНГ-Инжиниринг (ГК Европейская Электротехника): 
+        итоги 30-ой Юбилейной Международной выставки "Нефть и Газ Каспия", Caspian OIL&GAS</h2>
+      <p class="news-short">Компания РНГ-Инжиниринг приняла участие с совместным стендом от центра поддержки экспорта Республики Башкортостан 
+        в 30-ой Юбилейной международной Выставке "Нефть и Газ Каспия", CAspian OIL&GAS , 
+        прошедшей с 2-4 июня в городе Баку, Азербайджан.</p>
+      <button class="show-button" onclick="toggleText(this)">Показать</button>
+      <p class="news-full-text">
+        В этом году крупнейшему мероприятию энергетического сектора в Прикаспийском регионе 30 лет, 
+        и на юбилей события собрались ключевые мировые игроки отрасли для обсуждения нефтегазовых проектов каспийского региона и обеспечения 
+        энергетической безопасности. Церемонию открытия выставки традиционно посетил Президент Азербайджанской Республики Ильхам Алиев.
+      </p>
+    </div>
+
+        <div class="news-card">
+      <p class="news-date"><i>11.06.2025</i></p>
+      <h2 class="news-title">НПК "Грасис" приняла участие в конференции «Промышленные газы и газовые баллоны 2025»</h2>
+      <p class="news-short">15 мая в Москве прошла XIII Отраслевая конференция "Промышленные газы и газовые баллоны 2025". Руководитель проекта СПГ компании "Грасис" Алексей Гришко принял участие в программе конференции и выступил с докладом "Опыт реализации проектов по разделению воздуха и газов". </p>
+      <button class="show-button" onclick="toggleText(this)">Показать</button>
+      <p class="news-full-text">
+        В рамках доклада были раскрыты следующие темы:
+
+        Компетенции Грасис в области газоразделения. Производственные мощности. Технологические решения.
+        Обзор и сравнение применения решений на базе различных технологий.
+        Использование отечественного оборудования и ключевых компонентов систем для минимизации рисков реализации проектов в РФ.
+      </p>
+    </div>
+
+        <div class="news-card">
+      <p class="news-date"><i>12.06.2025</i></p>
+      <h2 class="news-title">МЗ Перспективные Технологии рассказала молодым предпринимателям о трансформации и стратегиях лидерства в новых экономических реалиях</h2>
+      <p class="news-short">ГК Softline, МФТИ, ОМЗ Перспективные Технологии и Sk Capital запускают инициативу по подготовке будущих технологических лидеров в сфере цифровой трансформации и кибербезопасности</p>
+      <button class="show-button" onclick="toggleText(this)">Показать</button>
+      <p class="news-full-text">
+        ГК Softline — инвестиционно-технологический холдинг с фокусом на инновации; МФТИ — ведущий российский вуз в сфере технологического предпринимательства; Группа ОМЗ Перспективные Технологии, интегратор технологических решений, связывающий крупнейшие промышленные корпорации с новейшими технологиями и Sk Capital (группа ВЭБ.РФ) — инвестиционная компания по созданию технологических холдингов в стратегически важных отраслях, провели индустриальное мероприятие "Как ученые и исследователи управляют компаниями с миллиардной выручкой?" для коллег сферы предпринимательства, финансов и высоких технологий, а также всех интересующихся вопросами менеджмента и инвестиций в сфере IT. Мероприятие прошло на кафедре технологического предпринимательства МФТИ+Сколково.
+      </p>
+    </div>
+
+        <div class="news-card">
+      <p class="news-date"><i>04.06.2025</i></p>
+      <h2 class="news-title">Компания "Грасис" поставила блочно-модульную кислородно-воздушную станцию</h2>
+      <p class="news-short">Компания "Грасис" поставила блочно-модульную кислородно-воздушную станцию АКС на основе адсорбционной технологии, в полной заводской готовности.</p>
+      <button class="show-button" onclick="toggleText(this)">Показать</button>
+      <p class="news-full-text">
+        Станция входит в состав инновационного комплекса по производству микробного белка.
+      </p>
+    </div>
+
+        <div class="news-card">
+      <p class="news-date"><i>21.04.2025</i></p>
+      <h2 class="news-title">НПК "Грасис": делегация из "ВНИИСВ" посетила производство "Грасис"</h2>
+      <p class="news-short">Гости посетили производственные площадки, им показали оборудование и процесс изготовления мембранных картриджей.</p>
+      <button class="show-button" onclick="toggleText(this)">Показать</button>
+      <p class="news-full-text">
+        В конце встречи представители делегации поблагодарили сотрудников "Грасис" за теплый прием и экскурсию, а также заявили о готовности к сотрудничеству.
+      </p>
+    </div>
+
+        <div class="news-card">
+      <p class="news-date"><i>18.04.2025</i></p>
+      <h2 class="news-title">РНГ-Инжиниринг (ГК Европейская Электротехника): ярмарка вакансий УГНТУ-2025</h2>
+      <p class="news-short">Мероприятие собрало десятки ведущих предприятий нефтегазовой отрасли, а также сотни студентов, заинтересованных в построении успешной карьеры.</p>
+      <button class="show-button" onclick="toggleText(this)">Показать</button>
+      <p class="news-full-text">
+        На стенде РНГ-Инжиниринг представители компании провели живое общение со студентами, рассказали о направлениях деятельности, текущих проектах, а также возможностях прохождения производственной практики и дальнейшего трудоустройства. Особый интерес у студентов вызвали вакансии для молодых специалистов и программы стажировок, позволяющие получить первый профессиональный опыт в реальных производственных условиях.
+      </p>
+    </div>
+
+        <div class="news-card">
+      <p class="news-date"><i>30.04.2025</i></p>
+      <h2 class="news-title">Группа ОМЗ Перспективные Технологии приняла участие в стратегической сессии "Промышленное программное обеспечение тяжелого класса" под председательством Председателя Правительства РФ Михаила Мишустина</h2>
+      <p class="news-short">Мероприятие собрало представителей ведущих отечественных промышленных предприятий, разработчиков программного обеспечения, профильных министерств и институтов развития.</p>
+      <button class="show-button" onclick="toggleText(this)">Показать</button>
+      <p class="news-full-text">
+        Основной темой обсуждения стали механизмы перехода компаний промышленного сектора на отечественные программные продукты.
+      </p>
+    </div>
+
+        <div class="news-card">
+      <p class="news-date"><i>15.05.2025</i></p>
+      <h2 class="news-title">НПК "Грасис" приняла участие в конференции «Промышленные газы и газовые баллоны 2025»</h2>
+      <p class="news-short">15 мая в Москве прошла XIII Отраслевая конференция "Промышленные газы и газовые баллоны 2025". </p>
+      <button class="show-button" onclick="toggleText(this)">Показать</button>
+      <p class="news-full-text">
+        Руководитель проекта СПГ компании "Грасис" Алексей Гришко принял участие в программе конференции и выступил с докладом "Опыт реализации проектов по разделению воздуха и газов". 
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; Анастасия Чикирисова, ФБИ-33, 2 курс, 2025
+  </footer>
 </div>
 
-    <script>
-        function toggleText(button) {
-            const text = button.nextElementSibling;
-            if (text.style.display === "block") {
-                text.style.display = "none";
-                button.textContent = "Показать";
-            } else {
-                text.style.display = "block";
-                button.textContent = "Скрыть";
-            }
-        }
-    </script>
+<div class="side-nav">
+  <a href="comp.html">О компании</a>
+  <a href="news.html" class="active">Новости</a>
+  <a href="currency.html">Курс валют</a>
+  <a href="contacts.html">Контактные данные</a>
+  <a href="video.html">Видео</a>
+</div>
+
+<script>
+  function toggleText(button) {
+    const text = button.nextElementSibling;
+    if (text.style.display === "block") {
+      text.style.display = "none";
+      button.textContent = "Показать";
+    } else {
+      text.style.display = "block";
+      button.textContent = "Скрыть";
+    }
+  }
+</script>
+
 </body>
 </html>
+
